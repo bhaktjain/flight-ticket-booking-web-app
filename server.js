@@ -31,7 +31,7 @@ app.use('/signUp', signUpRoute)
 app.use('/login', loginRoute)
 app.use('/logout',logoutRoute)
 app.use('/flight',authenticateToken,flightsRoute)
-app.use('/flights',authenticateToken,flightsRoute)
+//app.use('/flights',authenticateToken,flightsRoute)
 app.use('/getFlights',authenticateToken,searchFlightRoute)
 app.use('/book',authenticateToken,bookFlightRoute)
 

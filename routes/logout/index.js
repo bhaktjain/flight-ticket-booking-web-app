@@ -6,7 +6,7 @@ route.put('/', async (req, res) => {
     res.send({ msg: 'You have been Logged Out' });
     }
     else{
-        res.send({ msg: 'You must login to login' });
+        res.send({ msg: 'You must login to logout' });
     }
     
 })

@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize')
-const db = new Sequelize('brjflightbooking','brjuser','brjpass',{
+/* const db = new Sequelize('brjflightbooking','brjuser','brjpass',{
     host: 'localhost',
     dialect:'mysql'
-})
+}) */
 
 const Op = Sequelize.Op;
 /* const db = new Sequelize('intmfdb','intmfuser','intmfpass',{
@@ -11,6 +11,13 @@ const Op = Sequelize.Op;
     dialect:'sqlite'
    
 }) */
+
+const db = new Sequelize({
+    dialect: 'sqlite',
+    storage: __dirname+'brjflightbooking.db'
+  });
+  
+
 const Model = Sequelize.Model
 
 db.authenticate()

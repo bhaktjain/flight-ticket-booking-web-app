@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 function generateAccessToken(param){
-    return jwt.sign(param, process.env.TOKEN_SECRET, { expiresIn: '18000s'});
+    return jwt.sign(param, process.env.TOKEN_SECRET, { expiresIn: '1800s'});
 }
 
 const authenticateToken = (req, res, next) => {
@@ -15,6 +15,7 @@ const authenticateToken = (req, res, next) => {
     if (authHeader) {
         const token = authHeader.split(' ')[1];
 
+        //secret matching, checking expiry of token and storing data to payload
         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
             if (err) {
                 console.log(err)

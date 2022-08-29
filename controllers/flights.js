@@ -93,4 +93,34 @@ async function searchFlights(date){
     }
 }
 
-module.exports = {addFlight,removeFlight,newBooking,updateFlight,getAllFlights,searchFlights}
+async function getUserBookings(email){
+    try{
+        const flights = await Bookings.findAll({
+            where:{
+                email:email
+            }
+        })
+
+        if(flights){
+            return flights
+        }
+        else{
+            return false
+        }
+    }
+    catch(err){
+        console.log(err)
+        return err
+    }
+   
+}
+
+async function getFlight(flightid){
+    const flight = await Flights.findOne({
+        where:{
+            flightid:flightid
+        }
+    })
+    return flight
+}
+module.exports = {addFlight,removeFlight,newBooking,updateFlight,getAllFlights,searchFlights,getUserBookings,getFlight}

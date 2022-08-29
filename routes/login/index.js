@@ -22,6 +22,7 @@ route.post('/',async (req, res) => {
                 "lastname":theUser.lastname
             }
             const token = generateAccessToken(jsonParam)
+            console.log(token)
             req.session.authorization = 'bearer '+token;
             res.status(200).send({message:"successfully loggedin"})
         }
